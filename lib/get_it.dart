@@ -61,7 +61,7 @@ typedef FactoryFuncParamAsync<T, P1, P2> = Future<T> Function(
 );
 
 /// Data structure used to identify a dependency by type and instanceName
-class InitDependency extends Type {
+class InitDependency implements Type {
   final Type type;
   final String? instanceName;
 
@@ -157,9 +157,9 @@ abstract class GetIt {
   /// [type] if you want to get an instance by a Type object instead of a generic parameter.This should
   /// rarely be needed but can be useful if you have a runtime type and want to get an instance
   T get<T extends Object>({
-    String? instanceName,
     dynamic param1,
     dynamic param2,
+    String? instanceName,
     Type? type,
   });
 
